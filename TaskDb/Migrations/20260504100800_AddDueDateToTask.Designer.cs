@@ -11,7 +11,7 @@ using TaskDb.Data;
 namespace TaskDb.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260504094555_AddDueDateToTask")]
+    [Migration("20260504100800_AddDueDateToTask")]
     partial class AddDueDateToTask
     {
         /// <inheritdoc />
@@ -32,6 +32,9 @@ namespace TaskDb.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(1000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("DueDate")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsCompleted")
